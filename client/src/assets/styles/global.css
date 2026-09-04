@@ -1,0 +1,243 @@
+/**
+ * @file frontend/src/assets/styles/global.css
+ * @description SHOPEZ — Global Custom Styles (Modern E-commerce Design System)
+ *
+ * Design system overrides and custom components:
+ * - CSS custom properties (design tokens based on user specs)
+ * - Typography (Inter font family)
+ * - Spacing & Grid utility classes
+ * - Component overrides for Bootstrap
+ */
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  /* Brand Palette */
+  --color-primary: #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --color-secondary: #64748B;
+  --color-accent: #F97316;
+  
+  /* Backgrounds & Surfaces */
+  --color-bg-body: #F8FAFC;
+  --color-bg-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+
+  /* Typography Colors */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+
+  /* Status Colors */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 15px rgba(37, 99, 235, 0.3);
+
+  /* Borders & Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ============================================
+   Global Reset & Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Bootstrap Overrides
+   ============================================ */
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1.5rem;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: #FFFFFF;
+}
+
+/* Outline Button */
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  transition: all var(--transition-base);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Form Inputs */
+.form-control, .form-select {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-surface);
+  transition: all var(--transition-base);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Custom Utility Classes
+   ============================================ */
+
+.text-primary-custom {
+  color: var(--color-primary) !important;
+}
+
+.bg-surface {
+  background-color: var(--color-bg-surface);
+}
+
+.radius-12 {
+  border-radius: var(--radius-lg) !important;
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-md) !important;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+}
+
+.text-muted-custom {
+  color: var(--color-text-muted) !important;
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 5rem 0;
+}
+
+/* Badge */
+.badge-accent {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.35em 0.65em;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.75em;
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
